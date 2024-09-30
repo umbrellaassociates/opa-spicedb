@@ -1,0 +1,6 @@
+plugins:
+  spicedb:
+    endpoint: localhost:50051
+    token: foobar
+    insecure: true
+    schemaprefix: 

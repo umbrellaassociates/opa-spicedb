@@ -1,0 +1,52 @@
+---
+schema: |-
+  /**
+   * user represents a user that can be granted role(s)
+   */
+  definition user {}
+
+  /**
+   * document represents a document.
+   */
+  definition document {
+      /**
+       * writer indicates that the user is a writer on the document.
+       */
+      relation writer: user
+
+      /**
+       * reader indicates that the user is a reader on the document.
+       */
+      relation reader: user
+
+      /**
+       * edit indicates that the user has permission to edit the document.
+       */
+      permission edit = writer
+
+      /**
+       * view indicates that the user has permission to view the document, if they
+       * are a `reader` *or* have `edit` permission.
+       */
+      permission view = reader + edit
+  }
+
+relationships: |-
+  document:firstdoc#writer@user:alice
+  document:firstdoc#reader@user:bob
+  document:seconddoc#reader@user:alice
+
+assertions:
+  assertTrue:
+    - "document:firstdoc#view@user:alice"
+    - "document:firstdoc#view@user:bob"
+    - "document:seconddoc#view@user:alice"
+  assertFalse:
+    - "document:seconddoc#view@user:bob"
+
+validation:
+  document:firstdoc#view:
+    - "[user:alice] is <document:firstdoc#writer>"
+    - "[user:bob] is <document:firstdoc#reader>"
+  document:seconddoc#view:
+    - "[user:alice] is <document:seconddoc#reader>"

@@ -1,0 +1,6 @@
+plugins:
+  spicedb:
+    endpoint: spicedb-grpc-addr:443
+    token: <token>
+    insecure: false
+    schemaprefix: myprefix/

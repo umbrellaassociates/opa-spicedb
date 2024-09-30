@@ -1,0 +1,27 @@
+services:
+  spicedb:
+    image: "authzed/spicedb"
+    command: 'serve'
+    restart: "always"
+    ports:
+      - "28080:8080"
+      - "29090:9090"
+      - "50051:50051"
+    environment:
+      - "SPICEDB_GRPC_PRESHARED_KEY=foobar"
+
+  ## just import schema & demo data
+  spicedb-import:
+    image: "authzed/zed"
+    command: "import --schema=true /schema-and-data.yaml"
+    environment:
+        - "ZED_ENDPOINT=spicedb:50051"
+        - "ZED_TOKEN=foobar"
+        - "ZED_INSECURE=1"
+
+    volumes:
+      - ./schema-and-data.yaml:/schema-and-data.yaml:z
+    depends_on:
+      - spicedb
+    links:
+      - spicedb
