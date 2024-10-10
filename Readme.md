@@ -17,7 +17,7 @@ This plugin adds support for querying and manipulating relations from [Authzed](
 [Authzed SpiceDB](https://authzed.com/spicedb) is an open source authorization system for Relationship-Based Access Control (ReBAC), originally inspired by [Google's Zanzibar paper](https://www.usenix.org/conference/atc19/presentation/pang) and one of the most advanced implementation of it.
 
 
-## Policy 📃 + Relations 🧠 = 💪 fine-granular access control
+## Policy 📃 + Relations 🧠 = 💪 fine-grained access control
 
 PBAC and ReBAC are both strong models for fine-grained access control, while OPA and SpiceDB are award winning solutions and the best-of-breed products for their respective categories.
 
