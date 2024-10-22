@@ -1,4 +1,4 @@
-module umbrella-associates/opa-spicedb
+module github.com/umbrellaassociates/opa-spicedb
 
 go 1.21
 
