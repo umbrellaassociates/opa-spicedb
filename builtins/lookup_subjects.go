@@ -9,7 +9,7 @@ import (
 	"github.com/open-policy-agent/opa/types"
 	"google.golang.org/grpc/status"
 	"io"
-	authzed "umbrella-associates/opa-spicedb/plugins/spicedb"
+	authzed "github.com/umbrellaassociates/opa-spicedb/plugins/spicedb"
 )
 
 type lookupSubjectsResult struct {

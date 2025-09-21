@@ -8,7 +8,7 @@ import (
 	"github.com/open-policy-agent/opa/rego"
 	"github.com/open-policy-agent/opa/types"
 	"google.golang.org/grpc/status"
-	authzed "umbrella-associates/opa-spicedb/plugins/spicedb"
+	authzed "github.com/umbrellaassociates/opa-spicedb/plugins/spicedb"
 )
 
 var checkPermissionBuiltinDecl = &rego.Function{

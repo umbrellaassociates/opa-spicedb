@@ -10,7 +10,7 @@ import (
 	"google.golang.org/grpc/status"
 	"io"
 	"strings"
-	authzed "umbrella-associates/opa-spicedb/plugins/spicedb"
+	authzed "github.com/umbrellaassociates/opa-spicedb/plugins/spicedb"
 )
 
 type Relationship struct {

@@ -8,7 +8,7 @@ import (
 	"github.com/open-policy-agent/opa/rego"
 	"github.com/open-policy-agent/opa/types"
 	"io"
-	authzed "umbrella-associates/opa-spicedb/plugins/spicedb"
+	authzed "github.com/umbrellaassociates/opa-spicedb/plugins/spicedb"
 	"google.golang.org/grpc/status"
 )
 
