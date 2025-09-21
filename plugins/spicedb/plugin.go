@@ -7,6 +7,7 @@ import (
 	"github.com/open-policy-agent/opa/plugins"
 	"github.com/open-policy-agent/opa/util"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 	"sync"
 )
 
@@ -45,7 +46,7 @@ func (p *SpicedbPlugin) Start(ctx context.Context) error {
 
 	grpcSecurity, err := grpcutil.WithSystemCerts(grpcutil.VerifyCA)
 	if p.config.Insecure {
-		grpcSecurity = grpc.WithInsecure()
+		grpcSecurity = grpc.WithTransportCredentials(insecure.NewCredentials())
 	}
 	
 	if p.config.Schemaprefix != "" {

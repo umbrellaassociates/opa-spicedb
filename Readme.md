@@ -219,6 +219,32 @@ docker compose -f demo/docker-compose.yaml up -d
 docker compose -f demo/docker-compose.yaml down
 ```
 
+### Run in docker
+
+Find the docker images on [docker hub](https://hub.docker.com/r/umbrellaassociates/opa-spicedb/).
+
+Pull the docker image:
+
+``` 
+docker pull umbrellaassociates/opa-spicedb:latest 
+```
+
+OPA configuration to connect to SpiceDB:
+
+* plugins.spicedb.endpoint (endpoint address, eg. spicedb:50052)
+* plugins.spicedb.token (authentication token, eg. secretToken)
+* plugins.spicedb.insecure (disable gRPC security, eg. true)
+* plugins.spicedb.schemaprefix (set a schema prefix, eg. prefix)
+
+
+Run the extended OPA server and expose the server on the host.
+
+SpiceDB endpoint is expected to be reachable under spicedb-host:50051
+
+```
+docker run -it --rm -p 8181:8181 umbrellaassociates/opa-spicedb:latest run --server --set 'decision_logs.console=true' --log-level=debug --set plugins.spicedb.endpoint=spicedb-host:50051 --set plugins.spicedb.token=foobar --set plugins.spicedb.insecure=true --addr :8181
+```
+
 
 ## 🤝 Contributing
 
@@ -258,5 +284,5 @@ Please ⭐️ this repository if this project helped you!
 
 ## 📝 License
 
-Copyright © 2024 [umbrella.associates](https://github.com/umbrellaassociates).<br />
+Copyright © 2025 [umbrella.associates](https://github.com/umbrellaassociates).<br />
 This project is under [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0) licensed.
