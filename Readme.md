@@ -37,6 +37,7 @@ Currently implemented methods:
  - read_relationships
  - write_relationships
  - delete_relationships
+ - read_schema
 
 
 ### Builtin rego functions for SpiceDB
@@ -153,9 +154,25 @@ spicedb.delete_relationships("<resourceType>", "<optional-resourceId>", "<option
 
 ```
 
+#### Perform read schema request
+
+```
+spicedb.read_schema()
+
+## result:
+{
+  "read_at": {
+    "token": "GgoKCENLcW9BZz09"
+  },
+  "schema_text": "definition user {}\n\ndefinition resource {....}"
+}
+
+
+```
+
 # Build 🚀
 
-Make sure you have Go 1.22 installed.
+Make sure you have Go 1.24 installed.
 
 ```
 make build

@@ -11,4 +11,5 @@ func Register() {
 	rego.RegisterBuiltin3(WriteRelationshipsBuiltinDecl, WriteRelationshipsBuiltinImpl)
 	rego.RegisterBuiltinDyn(ReadRelationshipsBuiltinDecl, ReadRelationshipsBuiltinImpl)
 	rego.RegisterBuiltinDyn(DeleteRelationshipsBuiltinDecl, DeleteRelationshipsBuiltinImpl)
+	rego.RegisterBuiltinDyn(ReadSchemaBuiltinBuiltinDecl, ReadSchemaBuiltinImpl)
 }
